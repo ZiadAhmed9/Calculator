@@ -28,16 +28,18 @@ static uint8 KeyPad_4x4_adjustKeyNumber(uint8 button_number);
  *******************************************************************************/
 void KeyPad_init(void)
 {
-	DIO_setPINDir( KEYPAD_PORT_OUT,4,in);
-	DIO_setPINDir( KEYPAD_PORT_OUT,5,in);
-	DIO_setPINDir( KEYPAD_PORT_OUT,6,in);
-	DIO_setPINDir( KEYPAD_PORT_OUT,7,in);
+	DIO_setPINDir( KEYPAD_PORT_OUT,0,in);
+	DIO_setPINDir( KEYPAD_PORT_OUT,1,in);
+	DIO_setPINDir( KEYPAD_PORT_OUT,2,in);
+	DIO_setPINDir( KEYPAD_PORT_OUT,3,in);
+	DIO_setPINDir( KEYPAD_PORT_IN,0,in);
+	DIO_setPINDir( KEYPAD_PORT_IN,1,in);
 	DIO_setPINDir( KEYPAD_PORT_IN,2,in);
 	DIO_setPINDir( KEYPAD_PORT_IN,3,in);
-	DIO_setPINDir( KEYPAD_PORT_IN,4,in);
+	DIO_enablePullup_pin(KEYPAD_PORT_IN,0,1);
+	DIO_enablePullup_pin(KEYPAD_PORT_IN,1,1);
 	DIO_enablePullup_pin(KEYPAD_PORT_IN,2,1);
 	DIO_enablePullup_pin(KEYPAD_PORT_IN,3,1);
-	DIO_enablePullup_pin(KEYPAD_PORT_IN,4,1);
 }
 
 uint8 KeyPad_getPressedKey(void)
@@ -50,13 +52,13 @@ uint8 KeyPad_getPressedKey(void)
 		{
 			if(row>0)
 			{
-				DIO_setPINDir( KEYPAD_PORT_OUT,row+3,in);
+				DIO_setPINDir( KEYPAD_PORT_OUT,row,in);
 			}
-			DIO_setPINDir( KEYPAD_PORT_OUT,row+4,out);
-			DIO_write_PIN(KEYPAD_PORT_OUT,row+4,0);
+			DIO_setPINDir( KEYPAD_PORT_OUT,row,out);
+			DIO_write_PIN(KEYPAD_PORT_OUT,row,0);
 			for(col=0;col<N_col;col++)
 			{
-				if(DIO_read_PIN(KEYPAD_PORT_IN,col+2)==0)
+				if(DIO_read_PIN(KEYPAD_PORT_IN,col)==0)
 				{
 					#if (N_col==3)
 					return KeyPad_4x3_adjustKeyNumber((row*N_col)+col+1);
@@ -110,7 +112,7 @@ uint8 KeyPad_4x3_adjustKeyNumber(uint8 button_number)
 
 }
 
-uint8 KeyPad_4x3_adjustKeyNumber(uint8 button_number)
+uint8 KeyPad_4x4_adjustKeyNumber(uint8 button_number)
 {
 	switch(button_number)
 	{
@@ -124,26 +126,49 @@ uint8 KeyPad_4x3_adjustKeyNumber(uint8 button_number)
 		return '9';
 		break;
 	case 4:
-		return '';
+		return '/';
 		break;
 	case 5:
-		return '5';
+		return '4';
 		break;
 	case 6:
-		return '6';
+		return '5';
 		break;
 	case 7:
-		return '1';
+		return '6';
 		break;
 	case 8:
-		return '2';
+		return '*';
 		break;
 	case 9:
+		return '1';
+		break;
+	case 10:
+		return '2';
+		break;
+	case 11:
 		return '3';
 		break;
-	default:
+	case 12:
+		return '-';
+		break;
+	case 13:
+		return 'A';
+		break;
+	case 14:
 		return '0';
 		break;
+	case 15:
+		return '=';
+		break;
+	case 16:
+		return '+';
+		break;
+
+	default:
+		return 0 ;
+		break;
+
 
 	}
 
