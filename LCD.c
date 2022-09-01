@@ -111,7 +111,24 @@ void LCD_Clear(void)
 
 void LCD_integerToString(uint8 data)
 {
+
 	char buff[16];
 	itoa(data,buff,10);
 	LCD_displayString( buff );
+}
+
+
+void LCD_display_int(uint8 data)
+{
+	/* if any switch pressed for more than 500 ms it counts more than one press */
+	if((data <= 9) && (data >= 0))
+	{
+		LCD_integerToString(data); /* display the pressed keypad switch */
+	}
+	else
+	{
+		LCD_displayChar(data); /* display the pressed keypad switch */
+	}
+	_delay_ms(500); /* Press time */
+
 }

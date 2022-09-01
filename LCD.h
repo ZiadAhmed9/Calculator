@@ -83,6 +83,6 @@ void LCD_display_String_Row_Column(uint8 row,uint8 col, const char *str);
 void LCD_MoveTo_Row_Column(uint8 row, uint8 col);
 void LCD_integerToString(uint8 data);
 void LCD_refresh(void);
-
+LCD_display_char_int(uint8 data);
 
 #endif /* LCD_H_ */
