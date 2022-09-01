@@ -12,13 +12,13 @@
 #include "LCD.h"
 #include "KEYPAD.h"
 
-void calc(uint8 operation,uint8 op1,uint8 op2);
+void calc(uint8 operation,uint32 op1,uint32 op2);
 void GET_OP1(void);
 void GET_OP2(void);
 //void GET_OPERATION(void);
 void restart(void);
 
-volatile uint8 op1,op2,operation,check;
+volatile uint32 op1,op2,operation,check;
 
 int main(void)
 {
@@ -54,9 +54,9 @@ int main(void)
 	}
 }
 
-void calc(uint8 operation,uint8 op1,uint8 op2)
+void calc(uint8 operation,uint32 op1,uint32 op2)
 {
-	int result;
+	uint32 result;
 	switch(operation)
 	{
 	case '+' :
@@ -95,6 +95,15 @@ void calc(uint8 operation,uint8 op1,uint8 op2)
 		LCD_display_int(result%10);
 
 	}
+	else if(result>=10000&&result<100000)
+	{
+		LCD_display_int(result/10000);
+		LCD_display_int((result/1000)%10);
+		LCD_display_int((result/100)%10);
+		LCD_display_int((result/10)%10);
+		LCD_display_int(result%10);
+
+	}
 
 }
 
@@ -122,18 +131,29 @@ void GET_OP1(void)
 		check=1;
 		return;
 	}
-	else
-	{
-		LCD_display_int(key);
-		op1=op1*10+key;
-		key = KeyPad_getPressedKey();
-	}
+	LCD_display_int(key);
+	op1=op1*10+key;
+	key = KeyPad_getPressedKey();
 	if(key=='+'||key=='-'||key=='/'||key=='*')   /*if the entered digit is an arthimetic operator*/
 			{
 				LCD_display_int(key);   /*Display the pressed key*/
 				operation=key;
 				return;
 			}
+	else if(key=='A'||key=='=')
+	{
+		check=1;
+		return;
+	}
+	LCD_display_int(key);
+		op1=op1*10+key;
+		key = KeyPad_getPressedKey();
+		if(key=='+'||key=='-'||key=='/'||key=='*')   /*if the entered digit is an arthimetic operator*/
+				{
+					LCD_display_int(key);   /*Display the pressed key*/
+					operation=key;
+					return;
+				}
 }
 
 
@@ -174,6 +194,18 @@ void GET_OP2(void)
 	{
 		return;
 	}
+	LCD_display_int(key);
+		op2=op2*10+key;
+		key =KeyPad_getPressedKey();
+		if(key=='+'||key=='-'||key=='/'||key=='A'||key=='*')
+		{
+			check=1;
+			return;
+		}
+		else if(key=='=')
+		{
+			return;
+		}
 }
 
 //void GET_OPERATION(void)
