@@ -56,7 +56,7 @@ int main(void)
 
 void calc(uint8 operation,uint8 op1,uint8 op2)
 {
-	uint8 result;
+	int result;
 	switch(operation)
 	{
 	case '+' :
@@ -81,12 +81,26 @@ void calc(uint8 operation,uint8 op1,uint8 op2)
 		LCD_display_int(result/10);
 		LCD_display_int(result%10);
 	}
+	else if(result>=100&&result<1000)
+	{
+		LCD_display_int(result/100);
+		LCD_display_int((result/10)%10);
+		LCD_display_int(result%10);
+	}
+	else if(result>=1000&&result<10000)
+	{
+		LCD_display_int(result/1000);
+		LCD_display_int((result/100)%10);
+		LCD_display_int((result/10)%10);
+		LCD_display_int(result%10);
+
+	}
 
 }
 
 void GET_OP1(void)
 {
-	volatile int key;
+	volatile uint8 key;
 	key = KeyPad_getPressedKey(); /* get the pressed key number */
 	if(key=='+'||key=='-'||key=='/'||key=='='||key=='A'||key=='*')
 	{
@@ -110,22 +124,25 @@ void GET_OP1(void)
 	}
 	else
 	{
-	op1=(op1*10)+key;
-	key = KeyPad_getPressedKey();
+		LCD_display_int(key);
+		op1=op1*10+key;
+		key = KeyPad_getPressedKey();
+	}
 	if(key=='+'||key=='-'||key=='/'||key=='*')   /*if the entered digit is an arthimetic operator*/
 			{
 				LCD_display_int(key);   /*Display the pressed key*/
 				operation=key;
 				return;
 			}
-	}
-
-
 }
+
+
+
 
 void GET_OP2(void)
 {
 	uint8 key;
+
 	key =KeyPad_getPressedKey();
 	if(key=='+'||key=='-'||key=='/'||key=='='||key=='A'||key=='*')
 	{
@@ -134,6 +151,29 @@ void GET_OP2(void)
 	}
 	LCD_display_int(key);   /*Display the pressed key*/
 	op2=key;
+
+	key =KeyPad_getPressedKey();
+	if(key=='+'||key=='-'||key=='/'||key=='A'||key=='*')
+	{
+		check=1;
+		return;
+	}
+	else if(key=='=')
+	{
+		return;
+	}
+	LCD_display_int(key);
+	op2=op2*10+key;
+	key =KeyPad_getPressedKey();
+	if(key=='+'||key=='-'||key=='/'||key=='A'||key=='*')
+	{
+		check=1;
+		return;
+	}
+	else if(key=='=')
+	{
+		return;
+	}
 }
 
 //void GET_OPERATION(void)
