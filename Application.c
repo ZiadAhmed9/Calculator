@@ -74,34 +74,34 @@ void calc(uint8 operation,uint32 op1,uint32 op2)
 	}
 	if(result>=0&&result<10)
 	{
-		LCD_display_int(result);
+		LCD_display_int_nodelay(result);
 	}
 	else if(result>=10&&result<100)
 	{
-		LCD_display_int(result/10);
-		LCD_display_int(result%10);
+		LCD_display_int_nodelay(result/10);
+		LCD_display_int_nodelay(result%10);
 	}
 	else if(result>=100&&result<1000)
 	{
-		LCD_display_int(result/100);
-		LCD_display_int((result/10)%10);
-		LCD_display_int(result%10);
+		LCD_display_int_nodelay(result/100);
+		LCD_display_int_nodelay((result/10)%10);
+		LCD_display_int_nodelay(result%10);
 	}
 	else if(result>=1000&&result<10000)
 	{
-		LCD_display_int(result/1000);
-		LCD_display_int((result/100)%10);
-		LCD_display_int((result/10)%10);
-		LCD_display_int(result%10);
+		LCD_display_int_nodelay(result/1000);
+		LCD_display_int_nodelay((result/100)%10);
+		LCD_display_int_nodelay((result/10)%10);
+		LCD_display_int_nodelay(result%10);
 
 	}
 	else if(result>=10000&&result<100000)
 	{
-		LCD_display_int(result/10000);
-		LCD_display_int((result/1000)%10);
-		LCD_display_int((result/100)%10);
-		LCD_display_int((result/10)%10);
-		LCD_display_int(result%10);
+		LCD_display_int_nodelay(result/10000);
+		LCD_display_int_nodelay((result/1000)%10);
+		LCD_display_int_nodelay((result/100)%10);
+		LCD_display_int_nodelay((result/10)%10);
+		LCD_display_int_nodelay(result%10);
 
 	}
 

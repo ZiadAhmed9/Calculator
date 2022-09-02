@@ -129,6 +129,20 @@ void LCD_display_int(uint8 data)
 	{
 		LCD_displayChar(data); /* display the pressed keypad switch */
 	}
-	_delay_ms(500); /* Press time */
+	_delay_ms(200); /* Press time */
+
+}
+
+void LCD_display_int_nodelay(uint8 data)
+{
+	/* if any switch pressed for more than 500 ms it counts more than one press */
+	if((data <= 9) && (data >= 0))
+	{
+		LCD_integerToString(data); /* display the pressed keypad switch */
+	}
+	else
+	{
+		LCD_displayChar(data); /* display the pressed keypad switch */
+	}
 
 }
