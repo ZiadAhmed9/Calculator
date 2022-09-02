@@ -12,13 +12,22 @@
 #include "LCD.h"
 #include "KEYPAD.h"
 
-void calc(uint8 operation,uint32 op1,uint32 op2);
-void GET_OP1(void);
-void GET_OP2(void);
-//void GET_OPERATION(void);
-void restart(void);
-
 volatile uint32 op1,op2,operation,check;
+
+/*******************************************************************************
+ *                      Functions Prototypes                                   *
+ *******************************************************************************/
+
+void calc(uint8 operation,uint32 op1,uint32 op2);		/*this function will calculate result and print it*/
+void GET_OP1(void);		/*this function will acquire and display OPERAND1 and the operation*/
+void GET_OP2(void);		/*this function will acquire and display OPERAND2*/
+//void GET_OPERATION(void);
+void restart(void);    /*this function will restart the process*/
+
+
+/*******************************************************************************
+ *                           Main Function                                     *
+ *******************************************************************************/
 
 int main(void)
 {
@@ -48,6 +57,10 @@ int main(void)
 
 	while(1)
 	{
+		if(KeyPad_getPressedKey()=='A')
+		{
+			main();
+		}
 
 
 
@@ -113,8 +126,7 @@ void GET_OP1(void)
 	key = KeyPad_getPressedKey(); /* get the pressed key number */
 	if(key=='+'||key=='-'||key=='/'||key=='='||key=='A'||key=='*')
 	{
-		LCD_Clear();
-		check=1;
+		restart();
 		return;
 	}
 	LCD_display_int(key);   /*Display the pressed key*/
@@ -128,7 +140,7 @@ void GET_OP1(void)
 		}
 	else if(key=='A'||key=='=')
 	{
-		check=1;
+		restart();
 		return;
 	}
 	LCD_display_int(key);
@@ -142,7 +154,7 @@ void GET_OP1(void)
 			}
 	else if(key=='A'||key=='=')
 	{
-		check=1;
+		restart();
 		return;
 	}
 	LCD_display_int(key);
@@ -175,7 +187,7 @@ void GET_OP2(void)
 	key =KeyPad_getPressedKey();
 	if(key=='+'||key=='-'||key=='/'||key=='A'||key=='*')
 	{
-		check=1;
+		restart();
 		return;
 	}
 	else if(key=='=')
@@ -187,7 +199,7 @@ void GET_OP2(void)
 	key =KeyPad_getPressedKey();
 	if(key=='+'||key=='-'||key=='/'||key=='A'||key=='*')
 	{
-		check=1;
+		restart();
 		return;
 	}
 	else if(key=='=')

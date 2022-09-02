@@ -4,7 +4,7 @@
  *
  * File Name: KEYPAD.h
  *
- * Description: 
+ * Description: Keypad Module Header File
  *
  * Author: Ziad Ahmed
  *

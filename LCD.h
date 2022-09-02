@@ -4,7 +4,7 @@
  *
  * File Name: LCD.h
  *
- * Description: 
+ * Description: LCD module header file
  *
  * Author: Ziad Ahmed
  *

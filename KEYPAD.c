@@ -4,7 +4,7 @@
  *
  * File Name: KEYPAD.c
  *
- * Description: 
+ * Description: Keypad Driver file
  *
  * Author: Ziad Ahmed
  *

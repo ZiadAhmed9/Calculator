@@ -129,7 +129,7 @@ void LCD_display_int(uint8 data)
 	{
 		LCD_displayChar(data); /* display the pressed keypad switch */
 	}
-	_delay_ms(200); /* Press time */
+	_delay_ms(350); /* Press time */
 
 }
 
