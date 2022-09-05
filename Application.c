@@ -87,34 +87,34 @@ void calc(uint8 operation,uint32 op1,uint32 op2)
 	}
 	if(result>=0&&result<10)
 	{
-		LCD_display_int_nodelay(result);
+		LCD_integerToString(result);
 	}
 	else if(result>=10&&result<100)
 	{
-		LCD_display_int_nodelay(result/10);
-		LCD_display_int_nodelay(result%10);
+		LCD_integerToString(result/10);
+		LCD_integerToString(result%10);
 	}
 	else if(result>=100&&result<1000)
 	{
-		LCD_display_int_nodelay(result/100);
-		LCD_display_int_nodelay((result/10)%10);
-		LCD_display_int_nodelay(result%10);
+		LCD_integerToString(result/100);
+		LCD_integerToString((result/10)%10);
+		LCD_integerToString(result%10);
 	}
 	else if(result>=1000&&result<10000)
 	{
-		LCD_display_int_nodelay(result/1000);
-		LCD_display_int_nodelay((result/100)%10);
-		LCD_display_int_nodelay((result/10)%10);
-		LCD_display_int_nodelay(result%10);
+		LCD_integerToString(result/1000);
+		LCD_integerToString((result/100)%10);
+		LCD_integerToString((result/10)%10);
+		LCD_integerToString(result%10);
 
 	}
 	else if(result>=10000&&result<100000)
 	{
-		LCD_display_int_nodelay(result/10000);
-		LCD_display_int_nodelay((result/1000)%10);
-		LCD_display_int_nodelay((result/100)%10);
-		LCD_display_int_nodelay((result/10)%10);
-		LCD_display_int_nodelay(result%10);
+		LCD_integerToString(result/10000);
+		LCD_integerToString((result/1000)%10);
+		LCD_integerToString((result/100)%10);
+		LCD_integerToString((result/10)%10);
+		LCD_integerToString(result%10);
 
 	}
 
@@ -134,7 +134,7 @@ void GET_OP1(void)
 	key = KeyPad_getPressedKey();
 	if(key=='+'||key=='-'||key=='/'||key=='*')   /*if the entered digit is an arthimetic operator*/
 		{
-			LCD_display_int(key);   /*Display the pressed key*/
+			_delay_ms(350);
 			operation=key;
 			return;
 		}
@@ -148,7 +148,7 @@ void GET_OP1(void)
 	key = KeyPad_getPressedKey();
 	if(key=='+'||key=='-'||key=='/'||key=='*')   /*if the entered digit is an arthimetic operator*/
 			{
-				LCD_display_int(key);   /*Display the pressed key*/
+				_delay_ms(350);
 				operation=key;
 				return;
 			}
@@ -162,7 +162,7 @@ void GET_OP1(void)
 		key = KeyPad_getPressedKey();
 		if(key=='+'||key=='-'||key=='/'||key=='*')   /*if the entered digit is an arthimetic operator*/
 				{
-					LCD_display_int(key);   /*Display the pressed key*/
+					_delay_ms(350);
 					operation=key;
 					return;
 				}
@@ -176,6 +176,7 @@ void GET_OP2(void)
 	uint8 key;
 
 	key =KeyPad_getPressedKey();
+	LCD_Clear();
 	if(key=='+'||key=='-'||key=='/'||key=='='||key=='A'||key=='*')
 	{
 		restart();

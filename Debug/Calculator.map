@@ -9,17 +9,17 @@ c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
                               ./Application.o (__do_clear_bss)
 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fixunssfsi.o)
-                              ./LCD.o (__fixunssfsi)
+                              ./Application.o (__fixunssfsi)
 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_addsub_sf.o)
                               c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fixunssfsi.o) (__subsf3)
 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mul_sf.o)
-                              ./LCD.o (__mulsf3)
+                              ./Application.o (__mulsf3)
 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_gt_sf.o)
-                              ./LCD.o (__gtsf2)
+                              ./Application.o (__gtsf2)
 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_ge_sf.o)
                               c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fixunssfsi.o) (__gesf2)
 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_lt_sf.o)
-                              ./LCD.o (__ltsf2)
+                              ./Application.o (__ltsf2)
 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_sf_to_si.o)
                               c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fixunssfsi.o) (__fixsfsi)
 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_thenan_sf.o)
@@ -163,7 +163,7 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x3616
+.text           0x00000000     0x38ce
  *(.vectors)
  .vectors       0x00000000       0x54 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm16.o
                 0x00000000                __vectors
@@ -282,128 +282,128 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
                 0x00000b46                main
  .text.calc     0x00000c00      0x41e ./Application.o
                 0x00000c00                calc
- .text.GET_OP1  0x0000101e      0x1dc ./Application.o
+ .text.GET_OP1  0x0000101e      0x490 ./Application.o
                 0x0000101e                GET_OP1
- .text.GET_OP2  0x000011fa      0x19a ./Application.o
-                0x000011fa                GET_OP2
- .text.restart  0x00001394       0x2a ./Application.o
-                0x00001394                restart
+ .text.GET_OP2  0x000014ae      0x19e ./Application.o
+                0x000014ae                GET_OP2
+ .text.restart  0x0000164c       0x2a ./Application.o
+                0x0000164c                restart
  .text.DIO_setPINDir
-                0x000013be      0x1c8 ./DIO.o
-                0x000013be                DIO_setPINDir
+                0x00001676      0x1c8 ./DIO.o
+                0x00001676                DIO_setPINDir
  .text.DIO_write_PIN
-                0x00001586      0x1c8 ./DIO.o
-                0x00001586                DIO_write_PIN
+                0x0000183e      0x1c8 ./DIO.o
+                0x0000183e                DIO_write_PIN
  .text.DIO_read_PIN
-                0x0000174e       0xf4 ./DIO.o
-                0x0000174e                DIO_read_PIN
+                0x00001a06       0xf4 ./DIO.o
+                0x00001a06                DIO_read_PIN
  .text.DIO_BIT_TOGGLE
-                0x00001842       0xfc ./DIO.o
-                0x00001842                DIO_BIT_TOGGLE
+                0x00001afa       0xfc ./DIO.o
+                0x00001afa                DIO_BIT_TOGGLE
  .text.DIO_set_port_Dir
-                0x0000193e       0xbc ./DIO.o
-                0x0000193e                DIO_set_port_Dir
+                0x00001bf6       0xbc ./DIO.o
+                0x00001bf6                DIO_set_port_Dir
  .text.DIO_write_port
-                0x000019fa       0x84 ./DIO.o
-                0x000019fa                DIO_write_port
+                0x00001cb2       0x84 ./DIO.o
+                0x00001cb2                DIO_write_port
  .text.DIO_read_port
-                0x00001a7e       0x86 ./DIO.o
-                0x00001a7e                DIO_read_port
+                0x00001d36       0x86 ./DIO.o
+                0x00001d36                DIO_read_port
  .text.DIO_enablePullup_pin
-                0x00001b04      0x1c8 ./DIO.o
-                0x00001b04                DIO_enablePullup_pin
+                0x00001dbc      0x1c8 ./DIO.o
+                0x00001dbc                DIO_enablePullup_pin
  .text.DIO_write_low_nibble
-                0x00001ccc       0xe2 ./DIO.o
-                0x00001ccc                DIO_write_low_nibble
+                0x00001f84       0xe2 ./DIO.o
+                0x00001f84                DIO_write_low_nibble
  .text.DIO_set_low_nibble
-                0x00001dae       0x98 ./DIO.o
-                0x00001dae                DIO_set_low_nibble
+                0x00002066       0x98 ./DIO.o
+                0x00002066                DIO_set_low_nibble
  .text.DIO_clear_low_nibble
-                0x00001e46       0x98 ./DIO.o
-                0x00001e46                DIO_clear_low_nibble
+                0x000020fe       0x98 ./DIO.o
+                0x000020fe                DIO_clear_low_nibble
  .text.DIO_set_high_nibble
-                0x00001ede       0x98 ./DIO.o
-                0x00001ede                DIO_set_high_nibble
+                0x00002196       0x98 ./DIO.o
+                0x00002196                DIO_set_high_nibble
  .text.DIO_clear_high_nibble
-                0x00001f76       0x98 ./DIO.o
-                0x00001f76                DIO_clear_high_nibble
+                0x0000222e       0x98 ./DIO.o
+                0x0000222e                DIO_clear_high_nibble
  .text.DIO_write_high_nibble
-                0x0000200e       0xe4 ./DIO.o
-                0x0000200e                DIO_write_high_nibble
+                0x000022c6       0xe4 ./DIO.o
+                0x000022c6                DIO_write_high_nibble
  .text.DIO_write_high_nibbleDir
-                0x000020f2       0xf4 ./DIO.o
-                0x000020f2                DIO_write_high_nibbleDir
+                0x000023aa       0xf4 ./DIO.o
+                0x000023aa                DIO_write_high_nibbleDir
  .text.DIO_write_low_nibbleDir
-                0x000021e6       0xf4 ./DIO.o
-                0x000021e6                DIO_write_low_nibbleDir
+                0x0000249e       0xf4 ./DIO.o
+                0x0000249e                DIO_write_low_nibbleDir
  .text.KeyPad_init
-                0x000022da       0x86 ./KEYPAD.o
-                0x000022da                KeyPad_init
+                0x00002592       0x86 ./KEYPAD.o
+                0x00002592                KeyPad_init
  .text.KeyPad_getPressedKey
-                0x00002360       0x8a ./KEYPAD.o
-                0x00002360                KeyPad_getPressedKey
+                0x00002618       0x8a ./KEYPAD.o
+                0x00002618                KeyPad_getPressedKey
  .text.KeyPad_4x3_adjustKeyNumber
-                0x000023ea       0xd8 ./KEYPAD.o
-                0x000023ea                KeyPad_4x3_adjustKeyNumber
+                0x000026a2       0xd8 ./KEYPAD.o
+                0x000026a2                KeyPad_4x3_adjustKeyNumber
  .text.KeyPad_4x4_adjustKeyNumber
-                0x000024c2      0x14a ./KEYPAD.o
+                0x0000277a      0x14a ./KEYPAD.o
  .text.LCD_refresh
-                0x0000260c      0x2e6 ./LCD.o
-                0x0000260c                LCD_refresh
+                0x000028c4      0x2e6 ./LCD.o
+                0x000028c4                LCD_refresh
  .text.LCD_Command
-                0x000028f2      0x3f2 ./LCD.o
-                0x000028f2                LCD_Command
+                0x00002baa      0x3f2 ./LCD.o
+                0x00002baa                LCD_Command
  .text.LCD_init
-                0x00002ce4      0x148 ./LCD.o
-                0x00002ce4                LCD_init
+                0x00002f9c      0x148 ./LCD.o
+                0x00002f9c                LCD_init
  .text.LCD_displayChar
-                0x00002e2c      0x3f2 ./LCD.o
-                0x00002e2c                LCD_displayChar
+                0x000030e4      0x3f2 ./LCD.o
+                0x000030e4                LCD_displayChar
  .text.LCD_displayString
-                0x0000321e       0x52 ./LCD.o
-                0x0000321e                LCD_displayString
+                0x000034d6       0x52 ./LCD.o
+                0x000034d6                LCD_displayString
  .text.LCD_MoveTo_Row_Column
-                0x00003270       0x54 ./LCD.o
-                0x00003270                LCD_MoveTo_Row_Column
+                0x00003528       0x54 ./LCD.o
+                0x00003528                LCD_MoveTo_Row_Column
  .text.LCD_display_String_Row_Column
-                0x000032c4       0x32 ./LCD.o
-                0x000032c4                LCD_display_String_Row_Column
+                0x0000357c       0x32 ./LCD.o
+                0x0000357c                LCD_display_String_Row_Column
  .text.LCD_Clear
-                0x000032f6       0x14 ./LCD.o
-                0x000032f6                LCD_Clear
+                0x000035ae       0x14 ./LCD.o
+                0x000035ae                LCD_Clear
  .text.LCD_integerToString
-                0x0000330a       0x46 ./LCD.o
-                0x0000330a                LCD_integerToString
+                0x000035c2       0x46 ./LCD.o
+                0x000035c2                LCD_integerToString
  .text.LCD_display_int
-                0x00003350      0x120 ./LCD.o
-                0x00003350                LCD_display_int
+                0x00003608      0x120 ./LCD.o
+                0x00003608                LCD_display_int
  .text.LCD_display_int_nodelay
-                0x00003470       0x28 ./LCD.o
-                0x00003470                LCD_display_int_nodelay
- .text.libgcc   0x00003498       0x3e c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
-                0x00003498                __mulsi3
- .text.libgcc   0x000034d6       0x44 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
-                0x000034d6                __udivmodsi4
- .text.libgcc   0x0000351a        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .text.libgcc   0x0000351a        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
- .text.libgcc   0x0000351a       0x38 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
-                0x0000351a                __prologue_saves__
- .text.libgcc   0x00003552       0x36 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
-                0x00003552                __epilogue_restores__
- .text.libgcc   0x00003588        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+                0x00003728       0x28 ./LCD.o
+                0x00003728                LCD_display_int_nodelay
+ .text.libgcc   0x00003750       0x3e c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
+                0x00003750                __mulsi3
+ .text.libgcc   0x0000378e       0x44 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+                0x0000378e                __udivmodsi4
+ .text.libgcc   0x000037d2        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x000037d2        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ .text.libgcc   0x000037d2       0x38 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
+                0x000037d2                __prologue_saves__
+ .text.libgcc   0x0000380a       0x36 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
+                0x0000380a                __epilogue_restores__
+ .text.libgcc   0x00003840        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
  .text.avr-libc
-                0x00003588       0x42 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(itoa.o)
-                0x00003588                itoa
+                0x00003840       0x42 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(itoa.o)
+                0x00003840                itoa
  .text.avr-libc
-                0x000035ca       0x20 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strrev.o)
-                0x000035ca                strrev
- .text.libgcc   0x000035ea       0x28 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
-                0x000035ea                __udivmodhi4
-                0x00003612                . = ALIGN (0x2)
+                0x00003882       0x20 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strrev.o)
+                0x00003882                strrev
+ .text.libgcc   0x000038a2       0x28 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
+                0x000038a2                __udivmodhi4
+                0x000038ca                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00003612        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
-                0x00003612                exit
-                0x00003612                _exit
+ .fini9         0x000038ca        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                0x000038ca                exit
+                0x000038ca                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -422,11 +422,11 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00003612        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .fini0         0x000038ca        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x00003616                _etext = .
+                0x000038ce                _etext = .
 
-.data           0x00800060        0x8 load address 0x00003616
+.data           0x00800060        0x8 load address 0x000038ce
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800060        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm16.o
@@ -501,8 +501,8 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
                 0x00800070                check
                 0x00800074                op1
                 0x00800078                PROVIDE (__bss_end, .)
-                0x00003616                __data_load_start = LOADADDR (.data)
-                0x0000361e                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x000038ce                __data_load_start = LOADADDR (.data)
+                0x000038d6                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x00800078        0x0
                 0x00800078                PROVIDE (__noinit_start, .)
@@ -527,14 +527,14 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
 .signature
  *(.signature*)
 
-.stab           0x00000000     0x2868
+.stab           0x00000000     0x2a6c
  *(.stab)
- .stab          0x00000000      0x918 ./Application.o
- .stab          0x00000918      0xbd0 ./DIO.o
+ .stab          0x00000000      0xb1c ./Application.o
+ .stab          0x00000b1c      0xbd0 ./DIO.o
                                 0xe34 (size before relaxing)
- .stab          0x000014e8      0x498 ./KEYPAD.o
+ .stab          0x000016ec      0x498 ./KEYPAD.o
                                 0x6fc (size before relaxing)
- .stab          0x00001980      0xee8 ./LCD.o
+ .stab          0x00001b84      0xee8 ./LCD.o
                                0x1158 (size before relaxing)
 
 .stabstr        0x00000000      0xd61
