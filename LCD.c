@@ -44,7 +44,7 @@ void LCD_init(void)
 	DIO_write_high_nibbleDir(LCD_data_port,out);
 	LCD_Command(LCD_Cursor_reset);
 	LCD_Command(LCD_4bit_2line);
-	LCD_Command(LCD_displayOn_cursorOn);
+	LCD_Command(LCD_displayOn_cursorOff);
 	LCD_Command(LCD_clear_cmd);
 }
 
@@ -109,7 +109,7 @@ void LCD_Clear(void)
 
 
 
-void LCD_integerToString(uint8 data)
+void LCD_integerToString(sint8 data)
 {
 
 	char buff[16];
@@ -133,7 +133,7 @@ void LCD_display_int(uint8 data)
 
 }
 
-void LCD_display_int_nodelay(uint8 data)
+void LCD_display_int_nodelay(sint8 data)
 {
 	/* if any switch pressed for more than 500 ms it counts more than one press */
 	if((data <= 9) && (data >= 0))

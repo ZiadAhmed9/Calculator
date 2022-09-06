@@ -81,9 +81,9 @@ void LCD_init(void);
 void LCD_Clear(void);
 void LCD_display_String_Row_Column(uint8 row,uint8 col, const char *str);
 void LCD_MoveTo_Row_Column(uint8 row, uint8 col);
-void LCD_integerToString(uint8 data);
+void LCD_integerToString(sint8 data);
 void LCD_refresh(void);
 void LCD_display_int(uint8 data);
-void LCD_display_int_nodelay(uint8 data);
+void LCD_display_int_nodelay(sint8 data);
 
 #endif /* LCD_H_ */

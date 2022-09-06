@@ -20,7 +20,7 @@
 static uint8 KeyPad_4x3_adjustKeyNumber(uint8 button_number);
 
 #elif (N_col==4)
-static uint8 KeyPad_4x4_adjustKeyNumber(uint8 button_number);
+static sint8 KeyPad_4x4_adjustKeyNumber(uint8 button_number);
 
 #endif
 /*******************************************************************************
@@ -112,7 +112,7 @@ uint8 KeyPad_4x3_adjustKeyNumber(uint8 button_number)
 
 }
 
-uint8 KeyPad_4x4_adjustKeyNumber(uint8 button_number)
+sint8 KeyPad_4x4_adjustKeyNumber(uint8 button_number)
 {
 	switch(button_number)
 	{

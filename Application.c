@@ -12,13 +12,15 @@
 #include "LCD.h"
 #include "KEYPAD.h"
 
-volatile uint32 op1,op2,operation,check;
+volatile uint8 operation,check;
+volatile sint32 op1,op2;
+volatile uint8 neg=0;
 
 /*******************************************************************************
  *                      Functions Prototypes                                   *
  *******************************************************************************/
 
-void calc(uint8 operation,uint32 op1,uint32 op2);		/*this function will calculate result and print it*/
+void calc(uint8 operation,sint32 op1,sint32 op2);		/*this function will calculate result and print it*/
 void GET_OP1(void);		/*this function will acquire and display OPERAND1 and the operation*/
 void GET_OP2(void);		/*this function will acquire and display OPERAND2*/
 //void GET_OPERATION(void);
@@ -31,6 +33,7 @@ void restart(void);    /*this function will restart the process*/
 
 int main(void)
 {
+	op1=0,op2=0;
 	check=0;
 	LCD_init();
 	KeyPad_init();
@@ -39,6 +42,10 @@ int main(void)
 	if(check==1)
 	{
 		main();
+	}
+	if(neg==1)
+	{
+		op1=op1*-1;
 	}
 
 //	GET_OPERATION();
@@ -67,9 +74,9 @@ int main(void)
 	}
 }
 
-void calc(uint8 operation,uint32 op1,uint32 op2)
+void calc(uint8 operation,sint32 op1,sint32 op2)
 {
-	uint32 result;
+	sint32 result;
 	switch(operation)
 	{
 	case '+' :
@@ -85,6 +92,15 @@ void calc(uint8 operation,uint32 op1,uint32 op2)
 		result=op1/op2;
 		break;
 	}
+	if(result<0)
+	{
+		LCD_integerToString(result);
+	}
+//	if(result<-10&&result>-100)
+//	{
+//		LCD_integerToString(result);
+//
+//	}
 	if(result>=0&&result<10)
 	{
 		LCD_integerToString(result);
@@ -122,16 +138,21 @@ void calc(uint8 operation,uint32 op1,uint32 op2)
 
 void GET_OP1(void)
 {
-	volatile uint8 key;
+	volatile sint8 key;
 	key = KeyPad_getPressedKey(); /* get the pressed key number */
-	if(key=='+'||key=='-'||key=='/'||key=='='||key=='A'||key=='*')
+	if(key=='+'||key=='/'||key=='='||key=='A'||key=='*')
 	{
 		restart();
 		return;
 	}
 	LCD_display_int(key);   /*Display the pressed key*/
+	if(key=='-')
+	{
+		neg=1;
+		goto step;
+	}
 	op1=key;
-	key = KeyPad_getPressedKey();
+	step : key = KeyPad_getPressedKey();
 	if(key=='+'||key=='-'||key=='/'||key=='*')   /*if the entered digit is an arthimetic operator*/
 		{
 			_delay_ms(350);
